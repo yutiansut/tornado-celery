@@ -5,8 +5,8 @@ from datetime import datetime
 from celery import Celery
 
 
-celery = Celery("tasks", broker="amqp://")
-celery.conf.CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'amqp')
+celery = Celery("tasks", broker="redis://127.0.0.1:63790")
+celery.conf.CELERY_RESULT_BACKEND = 'redis://127.0.0.1:63790'
 
 
 @celery.task
